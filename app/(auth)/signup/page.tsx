@@ -75,7 +75,7 @@ export default function SignUpForm() {
       );
 
       router.push("/");
-    } catch (error: any) {
+    } catch (error: unknown) {
       setLoading(false);
       setError("Error signing in with Google");
     }
@@ -84,7 +84,7 @@ export default function SignUpForm() {
   const handleRegistration = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    let hasError = false;
+    const hasError = false;
 
     if (!hasError) {
       setLoading(true);

@@ -62,10 +62,10 @@ export default function LoginForm() {
       }));
 
       router.push("/"); 
-    } catch (error: any) {
+    } catch (error: unknown) {
       setLoading(false);
       setError("Failed to sign in with email/password. Please check your credentials.");
-      console.error("Error signing in with email/password:", error.message);
+      console.error("Error signing in with email/password:", error);
     }
   };
 
