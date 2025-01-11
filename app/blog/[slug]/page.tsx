@@ -1,8 +1,14 @@
-import { client } from "@/sanity/lib/client"; 
+import { client } from "@/sanity/lib/client";
 import Blog from "./Blog";
 
-const BlogPage = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;  
+interface BlogPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const BlogPage = async ({ params }: BlogPageProps) => {
+  const { slug } = params;
 
   const query = `*[_type == "blog" && slug.current == $slug]{ 
     title,
