@@ -78,6 +78,7 @@ export default function SignUpForm() {
     } catch (error: unknown) {
       setLoading(false);
       setError("Error signing in with Google");
+      console.log(error)
     }
   };
 
