@@ -34,7 +34,7 @@ export default function SignUpForm() {
       <div className="flex h-screen items-center justify-center px-2 sm:px-5 md:px-12">
         <div className="w-full max-w-screen-sm mx-auto shadow-xl p-8 bg-white rounded-md">
           <div className="space-y-8">
-            <h2 className="text-3xl font-bold">You're already logged in</h2>
+            <h2 className="text-3xl font-bold">You are already logged in</h2>
             <p className="text-lg">
               You are already signed in. Go to the home page to start
               interacting with the app.
