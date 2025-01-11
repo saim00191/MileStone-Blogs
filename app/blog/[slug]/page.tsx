@@ -1,14 +1,13 @@
 import { client } from "@/sanity/lib/client";
 import Blog from "./Blog";
+import { BlogPost } from "./types";
 
 interface BlogPageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 const BlogPage = async ({ params }: BlogPageProps) => {
-  const { slug } = params;
+  const { slug } = await params;
 
   const query = `*[_type == "blog" && slug.current == $slug]{ 
     title,
@@ -19,7 +18,7 @@ const BlogPage = async ({ params }: BlogPageProps) => {
     content
   }`;
 
-  const blogPost = await client.fetch(query, { slug });
+  const blogPost : BlogPost[] = await client.fetch(query, { slug });
 
   if (!blogPost || blogPost.length === 0) {
     return <div>Blog post not found.</div>;
@@ -29,3 +28,4 @@ const BlogPage = async ({ params }: BlogPageProps) => {
 };
 
 export default BlogPage;
+
